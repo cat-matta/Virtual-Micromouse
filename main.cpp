@@ -9,14 +9,18 @@ using namespace std;
 *4)fill rest, ignoring walls for now
 *5)push current cell to stack
 *6)while !s.isempty()
-*	s.peek
+*		pull a cell from the stack
+*		is cell+1>greater than next acessible neighbor?
+*		if yes--> keep pulling cells and compare
+*		if no-->change the current cell to be +1 greater than acessible neighbors
 *
+*Once we reach the middle cells at [7][7],[7][8],[8][7],[8][8], which contain 0, we are done!
 */
 
 
 int main(int argc, char const *argv[])
 {
-	int maze[16][16]={
+	int maze[16][16]={ // might move to a separate file to make code clean
 	{14,13,12,11,10,9,8,7,7,8,9,10,11,12,13,14},
 	{13,12,11,10,9,8,7,6,6,7,8,9,10,11,12,13},
 	{12,11,10,9,8,7,6,5,5,6,7,8,9,10,11,12},
@@ -36,7 +40,6 @@ int main(int argc, char const *argv[])
 	};
 
 	stack s;
-	s.push(maze[0][15]);
-
+	s.push(maze[0][15]); // we can do this around the other corners too like [0][0],[15][0],[15][15].
 	
 }
