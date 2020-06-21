@@ -1,0 +1,13 @@
+#include <cassert>
+
+template <class Item>
+void stack<Item>::push(Item x){
+	assert(top<MAX);
+	arr[++top]=x;
+
+}
+template<class Item>
+void stack<Item>::pop(){
+	assert(!isEmpty());
+	arr[top--];
+}

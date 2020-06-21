@@ -1,14 +1,18 @@
 
 #define MAX 256
 
+template <class Item>
 class stack{
 public:
 	stack(){top=-1;}
-	void push(int x);
+	void push(Item x);
 	void pop();
 	bool isEmpty() {return top==-1;}
-	int peek(){return arr[top];}
+	Item peek(){return arr[top];}
 private:
-	int top;
-	int arr[MAX];
+	Item top;
+	Item arr[MAX];
 };
+
+
+#include "stack.template"

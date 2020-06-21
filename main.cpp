@@ -39,7 +39,9 @@ int main(int argc, char const *argv[])
 	{14,13,12,11,10,9,8,7,7,8,9,10,11,12,13,14},
 	};
 
-	stack s;
+	stack<int> s; // int for now, subject to change
+	//cout<<(s.isEmpty() ? "stack empty\n" : "stack NOT empty\n"); // checking for proper initialization
+
 	s.push(maze[0][15]); // we can do this around the other corners too like [0][0],[15][0],[15][15].
-	
+	//cout<<s.peek()<<endl;
 }
