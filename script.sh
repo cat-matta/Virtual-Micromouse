@@ -18,4 +18,4 @@ rm *.o
 git add .
 read -p "Commit message: " mess
 git commit -m "$mess"
-git push origin master
+git push
