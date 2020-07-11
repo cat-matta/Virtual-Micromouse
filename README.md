@@ -8,3 +8,5 @@ I wrote a bash script, optional to use but will make your life easier, which wil
 4) Remove the ugly object files.
 
 just run: ./script.sh
+
+You can also push the new changes with ./gitsc.sh
