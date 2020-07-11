@@ -11,3 +11,10 @@ void stack<Item>::pop(){
 	assert(!isEmpty());
 	arr[top--];
 }
+template<class Item>
+void stack<Item>::print(){
+	Item i;
+	for(i=top;i>=0;i--){
+		std::cout<<arr[i]<<"\n";
+	}
+}

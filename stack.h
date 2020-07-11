@@ -8,6 +8,7 @@ public:
 	void push(Item x);
 	void pop();
 	bool isEmpty() {return top==-1;}
+	void print();//for testing purposes
 	Item peek(){return arr[top];}
 private:
 	Item top;
