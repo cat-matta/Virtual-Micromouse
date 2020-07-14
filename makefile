@@ -8,3 +8,6 @@ OBJ = main.o
 
 main: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS)
+
+clean:
+	rm *.o main

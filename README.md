@@ -9,6 +9,6 @@ I wrote a bash script, optional to use but will make your life easier, which wil
 
 just run: ./script.sh
 
-Alternatively, use ```make``` and ```./main```
+Alternatively, use ```make``` and ```./main``` and then ```make clean``` to clean up
 
 You can also push the new changes with ./gitsc.sh
