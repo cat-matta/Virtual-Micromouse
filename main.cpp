@@ -1,7 +1,9 @@
 #include <iostream>
-#include "stack.h"
-#include <fstream>// to read from file
-using namespace std;
+#include <stack>
+#include "API.h" // From the simulator
+using std::cout;
+using std::endl;
+using std::stack;
 
 /*Floodfill pseudocode:
 *1)create [16][16] maze
@@ -25,6 +27,15 @@ using namespace std;
 // int accessible_x(int curr,int a[]);
 // int accessible_y(int curr,int a[]);
 
+void printStack(stack<int> s){
+	if (s.empty())  
+        return; 
+    int x = s.top(); 
+    s.pop(); 
+    printStack(s); 
+    cout << x << " "; 
+    s.push(x);
+}
 
 int main(int argc, char const *argv[])
 {
@@ -46,22 +57,20 @@ int main(int argc, char const *argv[])
 	{13,12,11,10,9,8,7,6,6,7,8,9,10,11,12,13},
 	{14,13,12,11,10,9,8,7,7,8,9,10,11,12,13,14},
 	};
-	ofstream file;
-	file.open("maze.txt");
 	stack<int> s; // int for now, subject to change
 	//cout<<(s.isEmpty() ? "stack empty\n" : "stack NOT empty\n"); // checking for proper initialization
 	int start_x=0;
 	int start_y=15;
 	s.push(maze[start_x][start_y]); // we can do this around the other corners too like [0][0],[15][0],[15][15].
 
-	while(!s.isEmpty()&&maze[start_x][start_y]!=0){
-		int current=s.peek();
+	while(!s.empty()&&maze[start_x][start_y]!=0){
+		int current=s.top();
 		cout<< "Start of while \t"<< "x: "<<start_x <<" y: "<<start_y<<endl;
 
 		if (current>maze[start_x][start_y--]){
 			s.push(maze[start_x][start_y]);
-			cout<<s.peek()<<endl;
-			current=s.peek();
+			cout<<s.top()<<endl;
+			current=s.top();
 			cout<< "1st if "<<"x: "<<start_x <<" y: "<<start_y<<endl;
 	
 		}
@@ -69,29 +78,13 @@ int main(int argc, char const *argv[])
 			cout<< "2nd if "<<"x: "<<start_x <<" y: "<<start_y<<endl;
 	
 			s.push(maze[start_x][start_y]);
-			current=s.peek();
+			current=s.top();
 
 		}
 
 	}
-	cout<<"Peeking : "<<s.peek()<<endl;
+	cout<<"Peeking : "<<s.top()<<endl;
 
 	cout<<"\nprinting stack... \n";
-	s.print();
+	printStack(s);
 }
-// bool frontwall(int curr,std::ofstream& f){
-// 	//check wall infront of the robot
-// }
-// bool leftwall(int curr,std::ofstream& f){
-// 	//check wall to the left
-// }
-// bool rightwall(int curr,std::ofstream& f){
-// 	//checkwall to the right
-// }
-// int accessible_x(int curr,int a[]){
-// 	//this will call checkwall, left or right
-// }
-// int accessible_y(int curr,int a[]){
-// 	//this will call frontwall
-
-// }
