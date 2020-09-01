@@ -12,3 +12,7 @@ just run: ./script.sh
 Alternatively, use ```make``` and ```./main``` and then ```make clean``` to clean up
 
 You can also push the new changes with ./gitsc.sh
+
+Gene: 
+Micromouse simulator API information: https://github.com/mackorone/mms
+Example CPP code: https://github.com/mackorone/mms-cpp
