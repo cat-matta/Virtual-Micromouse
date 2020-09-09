@@ -19,6 +19,10 @@ using std::stack;
 *
 *Once we reach the middle cells at [7][7],[7][8],[8][7],[8][8], which contain 0, we are done!
 */
+void log(const std::string& text){
+	std::cerr << text << std:: endl;
+}
+
 int maze[16][16]={ 
 	{14,13,12,11,10,9,8,7,7,8,9,10,11,12,13,14},
 	{13,12,11,10,9,8,7,6,6,7,8,9,10,11,12,13},
@@ -37,7 +41,6 @@ int maze[16][16]={
 	{13,12,11,10,9,8,7,6,6,7,8,9,10,11,12,13},
 	{14,13,12,11,10,9,8,7,7,8,9,10,11,12,13,14},
 };
-
 void setMaze(){
 	for(int i=0; i<16; i++){
 		for(int j=0; j<16; j++){
@@ -58,8 +61,13 @@ void printStack(stack<int> s){
 
 int main(int argc, char const *argv[])
 {
+	log("Running...");
 	// initialize a maze with assigned values
 	setMaze();
+	// mouse starts pointing up
+	API::setColor(0,0,'G');
+
+	// TODO
 	stack<int> s; 
 	// cout<<(s.empty() ? "stack empty\n" : "stack NOT empty\n"); // checking for proper initialization
 	int start_x=0;
