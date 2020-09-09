@@ -19,21 +19,7 @@ using std::stack;
 *
 *Once we reach the middle cells at [7][7],[7][8],[8][7],[8][8], which contain 0, we are done!
 */
-
-void printStack(stack<int> s){
-	if (s.empty())  
-        return; 
-    int x = s.top(); 
-    s.pop(); 
-    printStack(s); 
-    cout << x << " "; 
-    s.push(x);
-}
-
-int main(int argc, char const *argv[])
-{
-	// initialize a maze with assigned values
-	int maze[16][16]={ 
+int maze[16][16]={ 
 	{14,13,12,11,10,9,8,7,7,8,9,10,11,12,13,14},
 	{13,12,11,10,9,8,7,6,6,7,8,9,10,11,12,13},
 	{12,11,10,9,8,7,6,5,5,6,7,8,9,10,11,12},
@@ -50,9 +36,32 @@ int main(int argc, char const *argv[])
 	{12,11,10,9,8,7,6,5,5,6,7,8,9,10,11,12},
 	{13,12,11,10,9,8,7,6,6,7,8,9,10,11,12,13},
 	{14,13,12,11,10,9,8,7,7,8,9,10,11,12,13,14},
-	};
+};
+
+void setMaze(){
+	for(int i=0; i<16; i++){
+		for(int j=0; j<16; j++){
+			API::setText(i,j,std::to_string(maze[i][j]));
+		}
+	}
+}
+
+void printStack(stack<int> s){
+	if (s.empty())  
+        return; 
+    int x = s.top(); 
+    s.pop(); 
+    printStack(s); 
+    cout << x << " "; 
+    s.push(x);
+}
+
+int main(int argc, char const *argv[])
+{
+	// initialize a maze with assigned values
+	setMaze();
 	stack<int> s; 
-	//cout<<(s.isEmpty() ? "stack empty\n" : "stack NOT empty\n"); // checking for proper initialization
+	// cout<<(s.empty() ? "stack empty\n" : "stack NOT empty\n"); // checking for proper initialization
 	int start_x=0;
 	int start_y=15;
 	s.push(maze[start_x][start_y]); // we can do this around the other corners too like [0][0],[15][0],[15][15].
