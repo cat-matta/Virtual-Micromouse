@@ -20,13 +20,6 @@ using std::stack;
 *Once we reach the middle cells at [7][7],[7][8],[8][7],[8][8], which contain 0, we are done!
 */
 
-// Need to figure out how to get acessible and check for walls
-// bool frontwall(int curr[][],std::ofstream& f);
-// bool leftwall(int curr[][],std::ofstream& f);
-// bool rightwall(int curr[][],std::ofstream& f);
-// int accessible_x(int curr,int a[]);
-// int accessible_y(int curr,int a[]);
-
 void printStack(stack<int> s){
 	if (s.empty())  
         return; 
@@ -39,7 +32,8 @@ void printStack(stack<int> s){
 
 int main(int argc, char const *argv[])
 {
-	int maze[16][16]={ // might move to a separate file to make code clean
+	// initialize a maze with assigned values
+	int maze[16][16]={ 
 	{14,13,12,11,10,9,8,7,7,8,9,10,11,12,13,14},
 	{13,12,11,10,9,8,7,6,6,7,8,9,10,11,12,13},
 	{12,11,10,9,8,7,6,5,5,6,7,8,9,10,11,12},
@@ -57,7 +51,7 @@ int main(int argc, char const *argv[])
 	{13,12,11,10,9,8,7,6,6,7,8,9,10,11,12,13},
 	{14,13,12,11,10,9,8,7,7,8,9,10,11,12,13,14},
 	};
-	stack<int> s; // int for now, subject to change
+	stack<int> s; 
 	//cout<<(s.isEmpty() ? "stack empty\n" : "stack NOT empty\n"); // checking for proper initialization
 	int start_x=0;
 	int start_y=15;
@@ -81,7 +75,6 @@ int main(int argc, char const *argv[])
 			current=s.top();
 
 		}
-
 	}
 	cout<<"Peeking : "<<s.top()<<endl;
 
